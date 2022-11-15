@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>130</y>
+      <w>190</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Main Menu
+--
+- Play
+- Options
+- Quit
+--
++ playGame()
++ viewOptions()
++ quitGame()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

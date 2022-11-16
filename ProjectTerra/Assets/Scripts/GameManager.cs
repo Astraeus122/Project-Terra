@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
     {
         if (_building.CanBuild())
         {
-            print("built building");
             FindObjectOfType<Interface>().UpdateResourceInterface();
             buildings.Add(_building);
             return true;

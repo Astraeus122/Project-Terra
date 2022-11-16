@@ -12,8 +12,7 @@ public class RobotsUnit : Building
         {
             Debug.Log("Building robot unit failed. Not enough metal.");
         }
-        
-        if (GameManager.Instance.m_minerals < 70)
+        else if (GameManager.Instance.m_minerals < 70)
         {
             Debug.Log("Building robot unit failed. Not enough minerals.");
         }

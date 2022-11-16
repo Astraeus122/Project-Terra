@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        if (DACnum >= 5 && m_habitability >= 2000)
+        if (DACnum >= 5 && m_habitability >= 3000)
         {
             print("Won the game!");
         }

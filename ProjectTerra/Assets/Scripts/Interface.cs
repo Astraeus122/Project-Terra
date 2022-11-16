@@ -12,17 +12,31 @@ public class Interface : MonoBehaviour
 
     [SerializeField] private GameObject m_solarHarvesters;
     [SerializeField] private GameObject m_gasGenerators;
+    [SerializeField] private GameObject m_macroBiome;
+    [SerializeField] private GameObject m_recreationCenters;
+    [SerializeField] private GameObject m_roboticsLab;
+    [SerializeField] private GameObject m_directAirCaptureFacilities;
+    [SerializeField] private GameObject m_robots;
 
     public void BuildRecreationCenterButton()
     {
-        GameManager.Instance.Build(new RecreationCenter());
+        if (GameManager.Instance.Build(new RecreationCenter()))
+        {
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is RecreationCenter).Count; i++)
+            {
+                if (m_recreationCenters.transform.GetChild(i) != null)
+                {
+                    m_recreationCenters.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+        }
     }
 
     public void BuildSolarHarvesterButton()
     {
         if (GameManager.Instance.Build(new SolarHarvester()))
         {
-            for (int i = 0; i <= GetSolarHarvesterNum(); i++)
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is SolarHarvester).Count; i++)
             {
                 if (m_solarHarvesters.transform.GetChild(i) != null)
                 {
@@ -32,45 +46,61 @@ public class Interface : MonoBehaviour
         }
     }
 
-    private int GetSolarHarvesterNum()
-    {
-        int count = 0;
-        foreach (Building b in GameManager.Instance.buildings)
-        {
-            if (b is SolarHarvester)
-            {
-                count++;
-            }
-        }
-
-        return count;
-    }
-    
     public void BuildRoboticsLabButton()
     {
-        GameManager.Instance.Build(new RoboticsLab());
+        for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is RoboticsLab).Count; i++)
+        {
+            if (m_roboticsLab.transform.GetChild(i) != null)
+            {
+                m_roboticsLab.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
     
     public void BuildDirectAirCaptureButton()
     {
-        GameManager.Instance.Build(new DirectAirCapture());
+        for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is DirectAirCapture).Count; i++)
+        {
+            if (m_directAirCaptureFacilities.transform.GetChild(i) != null)
+            {
+                m_directAirCaptureFacilities.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
     
     public void BuildMacroBiomeButton()
     {
-        GameManager.Instance.Build(new MacroBiome());
+        if (GameManager.Instance.Build(new MacroBiome()))
+        {
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is MacroBiome).Count; i++)
+            {
+                if (m_macroBiome.transform.GetChild(i) != null)
+                {
+                    m_macroBiome.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+        }
     }
 
     public void BuildRobotsUnitButton()
     {
-        GameManager.Instance.Build(new RobotsUnit());
+        if (GameManager.Instance.Build(new RobotsUnit()))
+        {
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is RobotsUnit).Count; i++)
+            {
+                if (m_robots.transform.GetChild(i) != null)
+                {
+                    m_robots.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+        }
     }
 
     public void BuildGasPoweredGenerator()
     {
         if (GameManager.Instance.Build(new GasPoweredGenerator()))
         {
-            for (int i = 0; i <= GetGasGeneratorNum(); i++)
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is GasPoweredGenerator).Count; i++)
             {
                 if (m_gasGenerators .transform.GetChild(i) != null)
                 {
@@ -80,21 +110,7 @@ public class Interface : MonoBehaviour
         }
     }
     
-    private int GetGasGeneratorNum()
-    {
-        int count = 0;
-        foreach (Building b in GameManager.Instance.buildings)
-        {
-            if (b is GasPoweredGenerator)
-            {
-                count++;
-            }
-        }
-
-        return count;
-    }
     
-
     public void UpdateResourceInterface()
     {
         metalsText.text = "Metals: <br>" + GameManager.Instance.m_metals;

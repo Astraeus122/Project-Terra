@@ -9,8 +9,7 @@ public class GasPoweredGenerator : Building
         {
             Debug.Log("Building Gas Powered Generator failed. Not enough metal.");
         }
-        
-        if (GameManager.Instance.m_minerals < 100)
+        else if (GameManager.Instance.m_minerals < 100)
         {
             Debug.Log("Building Gas Powered Generator failed. Not enough minerals.");
         }

@@ -11,7 +11,7 @@ public class RecreationCenter : Building
         {
             Debug.Log("Building Recreation Center failed. Not enough metal.");
         }
-        if (GameManager.Instance.m_minerals < 150)
+        else if (GameManager.Instance.m_minerals < 150)
         {
             Debug.Log("Building Recreation Center failed. Not enough minerals.");
         }

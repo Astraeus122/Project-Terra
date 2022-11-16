@@ -1,21 +1,30 @@
+using UnityEngine;
+
 public class GasPoweredGenerator : Building
 {
     private float habitabilityCost = 1;
     public override bool CanBuild()
     {
-        if (GameManager.Instance.m_metals >= 20 &&
-            GameManager.Instance.m_minerals >= 100)
+        if (GameManager.Instance.m_metals < 20)
+        {
+            Debug.Log("Building Gas Powered Generator failed. Not enough metal.");
+        }
+        
+        if (GameManager.Instance.m_minerals < 100)
+        {
+            Debug.Log("Building Gas Powered Generator failed. Not enough minerals.");
+        }
+        else
         {
             GameManager.Instance.m_metals -= 20;
             GameManager.Instance.m_minerals -= 100;
 
             GameManager.Instance.m_energyCapacity += 2;
+            
             return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 
     public override void ResourceTick()

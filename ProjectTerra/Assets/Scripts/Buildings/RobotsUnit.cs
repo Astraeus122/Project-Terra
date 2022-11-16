@@ -8,8 +8,16 @@ public class RobotsUnit : Building
     private bool m_miningMetals;
     public override bool CanBuild()
     {
-        if (GameManager.Instance.m_metals >= 25  && 
-            GameManager.Instance.m_minerals >= 70)
+        if (GameManager.Instance.m_metals < 25)
+        {
+            Debug.Log("Building robot unit failed. Not enough metal.");
+        }
+        
+        if (GameManager.Instance.m_minerals < 70)
+        {
+            Debug.Log("Building robot unit failed. Not enough minerals.");
+        }
+        else
         {
             bool hasRobotLab = false;
             foreach (Building building in GameManager.Instance.buildings)
@@ -22,7 +30,7 @@ public class RobotsUnit : Building
 
             if (!hasRobotLab)
             {
-                Debug.LogWarning("This unit requires a Robot Lab");
+                Debug.Log("This unit requires a Robot Lab");
                 return false;
             }
             
@@ -31,10 +39,8 @@ public class RobotsUnit : Building
             
             return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 
     public override void ResourceTick()

@@ -21,6 +21,8 @@ public class RecreationCenter : Building
         }
         else
         {
+            Debug.Log("Built Recreation Center.");
+
             GameManager.Instance.m_metals -= 150;
             GameManager.Instance.m_minerals -= 150;
             

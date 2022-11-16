@@ -14,6 +14,7 @@ public class SolarHarvester : Building
         }
         else
         {
+            Debug.Log("Built Solar Harvester.");
             GameManager.Instance.m_metals -= 50;
             GameManager.Instance.m_minerals -= 50;
             

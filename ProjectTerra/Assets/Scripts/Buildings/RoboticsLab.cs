@@ -19,6 +19,7 @@ public class RoboticsLab : Building
         }
         else
         {
+            Debug.Log("Built Robotics Lab.");
             GameManager.Instance.m_metals -= 100;
             GameManager.Instance.m_minerals -= 50;
             

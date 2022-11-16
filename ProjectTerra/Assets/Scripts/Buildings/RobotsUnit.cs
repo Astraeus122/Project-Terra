@@ -34,6 +34,8 @@ public class RobotsUnit : Building
                 return false;
             }
             
+            Debug.Log("Built Robots unit.");
+
             GameManager.Instance.m_metals -= 25;
             GameManager.Instance.m_minerals -= 70;
             

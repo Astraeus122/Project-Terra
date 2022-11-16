@@ -16,6 +16,8 @@ public class GasPoweredGenerator : Building
         }
         else
         {
+            Debug.Log("Built Gas Powered Generator.");
+
             GameManager.Instance.m_metals -= 20;
             GameManager.Instance.m_minerals -= 100;
 

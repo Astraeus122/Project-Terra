@@ -20,6 +20,8 @@ public class DirectAirCapture : Building
         }
         else
         {
+            Debug.Log("Built DAC Facility.");
+
             GameManager.Instance.m_metals -= 150;
             GameManager.Instance.m_minerals -= 200;
 

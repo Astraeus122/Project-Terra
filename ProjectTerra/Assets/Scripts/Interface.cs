@@ -48,22 +48,28 @@ public class Interface : MonoBehaviour
 
     public void BuildRoboticsLabButton()
     {
-        for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is RoboticsLab).Count; i++)
+        if (GameManager.Instance.Build(new RoboticsLab()))
         {
-            if (m_roboticsLab.transform.GetChild(i) != null)
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is RoboticsLab).Count; i++)
             {
-                m_roboticsLab.transform.GetChild(i).gameObject.SetActive(true);
+                if (m_roboticsLab.transform.GetChild(i) != null)
+                {
+                    m_roboticsLab.transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
         }
     }
     
     public void BuildDirectAirCaptureButton()
     {
-        for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is DirectAirCapture).Count; i++)
+        if (GameManager.Instance.Build(new DirectAirCapture()))
         {
-            if (m_directAirCaptureFacilities.transform.GetChild(i) != null)
+            for (int i = 0; i <= GameManager.Instance.buildings.FindAll(b => b is DirectAirCapture).Count; i++)
             {
-                m_directAirCaptureFacilities.transform.GetChild(i).gameObject.SetActive(true);
+                if (m_directAirCaptureFacilities.transform.GetChild(i) != null)
+                {
+                    m_directAirCaptureFacilities.transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
         }
     }

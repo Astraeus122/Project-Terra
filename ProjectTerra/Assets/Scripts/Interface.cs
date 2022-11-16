@@ -7,6 +7,8 @@ public class Interface : MonoBehaviour
     [SerializeField] private TMP_Text mineralsText;
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text habitabilityText;
+    [SerializeField] private TMP_Text habitabilityProgressText;
+    [SerializeField] private TMP_Text DACProgressText;
 
     [SerializeField] private GameObject m_solarHarvesters;
     [SerializeField] private GameObject m_gasGenerators;
@@ -99,5 +101,8 @@ public class Interface : MonoBehaviour
         mineralsText.text = "Minerals: <br>" + GameManager.Instance.m_minerals;
         energyText.text = "Energy Avail: <br>" + GameManager.Instance.m_energy + " / " + GameManager.Instance.m_energyCapacity;
         habitabilityText.text = "Habitability: <br>" + GameManager.Instance.m_habitability;
+
+        habitabilityProgressText.text = "Habitability: <br>" + GameManager.Instance.m_habitability + "/3000";
+        DACProgressText.text = "DAC Facilities: <br>" + GameManager.Instance.buildings.FindAll(b => b is DirectAirCapture).Count + " /5";
     }
 }
